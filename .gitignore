@@ -11,4 +11,8 @@ pids
 logs
 results
 
+node_modules
 npm-debug.log
+.DS-Store
+coverage.html
+

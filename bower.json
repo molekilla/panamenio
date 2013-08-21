@@ -1,0 +1,17 @@
+{
+  "name": "PingPongNexus7",
+  "dependencies": {
+    "backbone": "*",
+    "bootstrap": "*",
+    "handlebars": "https://raw.github.com/wycats/handlebars.js/1.0.0-rc.4/dist/handlebars.js",
+    "jquery" : "1.8.3",
+    "underscore" : "*"
+    },
+  "version": "0.1.0",
+  "ignore": [
+    "**/.*",
+    ".jshintrc",
+    "node_modules",
+    "components"
+  ]
+}
