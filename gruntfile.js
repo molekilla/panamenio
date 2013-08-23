@@ -116,7 +116,7 @@ module.exports = function(grunt) {
       dev: {
         options: {
           file: 'app.js',
-          debug: true
+          nodeArgs: ['--debug']
         }
       }
      }

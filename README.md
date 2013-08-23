@@ -4,6 +4,18 @@
 
 API para servicios publicos de Panama, Republica de Panama
 
+### V 0.10
+-Idaan
+
+### Install
+npm install
+Necesitas remover nodemon manualmente e instalar global
+
+### Desarrollo
+grunt nodemon
+Para debuggear, utiliza node-debugger
+grunt jasmine_node o grunt  ejecuta los specs
+
 ###REST API Spec
 ###Servicios Publicos
 ####/api/gob/servicio

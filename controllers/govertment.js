@@ -15,8 +15,15 @@ var GovtController = function(app) {
       res.send('Missing query');
       return;
    }
-   var regpubModel = new RegPub(res);
-   regpubModel.fetch(req.param('query'));
+   var regpubModel = new RegPub();
+   regpubModel.fetch(req.param('query'), {
+    success: function(html, model) {
+      res.json(200, model);
+    },
+    error: function(error) {
+      res.json(400, { error: error });
+    }
+   });
   });
 
   // Idaan - Billing Info
@@ -25,8 +32,15 @@ var GovtController = function(app) {
       res.send('Missing id');
       return;
     }
-    var idaanModel = new Idaan(req.param('id'), res);
-    idaanModel.fetch();
+    var idaanModel = new Idaan(req.param('id'));
+    idaanModel.fetch({
+      success: function(html, model) {
+        res.json(200, model);
+      },
+      error: function(error) {
+        res.json(400, { error: error });
+      }
+    });
   });
 };
 exports.init = function(app) {
