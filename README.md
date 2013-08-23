@@ -5,7 +5,45 @@
 API para servicios publicos de Panama, Republica de Panama
 
 ### V 0.10
--Idaan
+**Idaan**
+/api/gob/idaan/numero_de_cuenta
+
+```javascript
+// Respuesta
+    var response = {
+      agua : 7.92,
+      basura : 8.75,
+      total : 16.67,
+      owner : 'J Jay',
+      nic : '116',
+      updatedAt : '04/08/2013',
+      lastPaymentAt : '17/07/2013',
+      lastPaymentAmount : 'B/.12.73',
+      dateFormatISO : 'es-pa'
+    };
+```
+**Registro Publico**
+/api/gob/registropublico/nombre_a_buscar
+
+```javascript
+// Respuesta
+{
+  "sociedades": [
+    {
+      "sociedad": "IMAGINAR, S.A.",
+      "ficha": "445182",
+      "estatus": "",
+      "tomo": "0",
+      "folio": "0",
+      "links": {
+        "ficha": {
+          "href": "/item/445182"
+        }
+      }
+    }
+}
+```
+
 
 ### Install
 npm install
