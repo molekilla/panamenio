@@ -1,5 +1,5 @@
 var heredoc = require('heredoc');
-var Idaan = require('../lib/idaan');
+var Idaan = require('../lib/parsers/idaan');
 
 // Using http://www.willpeavy.com/minifier/ to Minify
 // Using heredoc found in NPM
@@ -21,7 +21,7 @@ describe("Idaan spec", function() {
       nic : '116',
       updatedAt : '04/08/2013',
       lastPaymentAt : '17/07/2013',
-      lastPaymentAmount : 'B/.12.73',
+      lastPaymentAmount : 12.73,
       dateFormatISO : 'es-pa'
     };
     expect(idaanService.parse(html)).toEqual(matchWith);
