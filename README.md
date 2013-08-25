@@ -1,4 +1,3 @@
-
 ##Panamen.io
 =========
 
@@ -18,7 +17,7 @@ API para servicios publicos de Panama, Republica de Panama
       nic : '116',
       updatedAt : '04/08/2013',
       lastPaymentAt : '17/07/2013',
-      lastPaymentAmount : 'B/.12.73',
+      lastPaymentAmount : 12.73,
       dateFormatISO : 'es-pa'
     };
 ```
@@ -73,6 +72,9 @@ Ejemplo
 **lib** contiene los modelos, cada modelo debe tener metodos **fetch** y **parse**
 
 **spec** contiene los specs al modelo. Por lo general queremos probar la logica de **parse**.
+
+### CheerioTemplate (en progreso)
+Plantillas para Cheerio. Permite separar (Decouple) logica de Scrap y Parse. 
 
 ###Adicional
 Los contribuidores deben fork y enviar Pull Request.
