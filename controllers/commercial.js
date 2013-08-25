@@ -1,6 +1,6 @@
 var _ = require('underscore');
-var Idaan = require('../lib/idaan');
-var RegPub = require('../lib/regpub.js');
+var Idaan = require('../lib/parsers/idaan');
+var RegPub = require('../lib/parsers/regpub.js');
 
 var CommercialController = function(app) {
 
