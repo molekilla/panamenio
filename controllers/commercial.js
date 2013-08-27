@@ -1,6 +1,5 @@
 var _ = require('underscore');
-var Idaan = require('../lib/parsers/idaan');
-var RegPub = require('../lib/parsers/regpub.js');
+var Metrobus = require('../lib/parsers/metrobus');
 
 var CommercialController = function(app) {
 
@@ -9,24 +8,21 @@ var CommercialController = function(app) {
     res.send("Hi Panamen.io");
   });
 
-  // Registro Publico - SA Info
-  app.get("/com/registropublico/:query", function(req, res) {
-   if (!req.param('query')) {
-      res.send('Missing query');
-      return;
-   }
-   var regpubModel = new RegPub(res);
-   regpubModel.fetch(req.param('query'));
-  });
-
-  // Idaan - Billing Info
-  app.get("/com/idaan/:id", function(req, res) {
+  // Metrobus - Card Info
+  app.get("/com/metrobus/:id", function(req, res) {
     if (!req.param('id')) {
-      res.send('Missing id');
+      res.send('Missing card id');
       return;
     }
-    var idaanModel = new Idaan(req.param('id'), res);
-    idaanModel.fetch();
+    var metrobusModel = new Metrobus(req.param('id'));
+    metrobusModel.fetch({
+      success: function(html, model) {
+        res.json(200, model);
+      },
+      error: function(error) {
+        res.json(400, { error: error });
+      }
+    });
   });
 };
 exports.init = function(app) {
