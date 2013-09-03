@@ -1,6 +1,6 @@
 var _ = require('underscore');
 var Idaan = require('../lib/parsers/idaan');
-var RegPub = require('../lib/parsers/regpub.js');
+var RegPub = require('../lib/parsers/regpub/regpub');
 
 var GovtController = function(app) {
 
