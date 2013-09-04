@@ -12,13 +12,13 @@ describe("RegPub spec", function() {
     var regpubService = new RegPubModel();
     var matchWith = { sociedades: 
     	[ { sociedad : 'IMAGINAR, S.A.', ficha : '445182', estado : '', tomo : '0', 
-    	folio : '0', links : { ficha : { href : '/item/445182' } } }
+    	folio : '0', links : { ficha : { href : '/sociedades/445182' } } }
     	, { sociedad : 'IMAGINARIUM INTERNATIONAL', ficha : '420538', estado : '', tomo : '0', 
-    	folio : '0', links : { ficha : { href : '/item/420538' } } }, 
+    	folio : '0', links : { ficha : { href : '/sociedades/420538' } } }, 
     	{ sociedad : 'IMAGINARIUN STUDIO, S.A.', ficha : '753324', estado : '', tomo : '0', 
-    	folio : '0', links : { ficha : { href : '/item/753324' } } }, 
+    	folio : '0', links : { ficha : { href : '/sociedades/753324' } } }, 
     	{ sociedad : 'IMAGINARTE, S.A.', ficha : '668450', estado : '', tomo : '0', 
-    	folio : '0', links : { ficha : { href : '/item/668450' } } } ]
+    	folio : '0', links : { ficha : { href : '/sociedades/668450' } } } ]
     };
     expect(regpubService.parse(html)).toEqual(matchWith);
   });

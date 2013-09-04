@@ -1,12 +1,31 @@
 var _ = require('underscore');
 var Idaan = require('../lib/parsers/idaan');
 var RegPub = require('../lib/parsers/regpub/regpub');
+var RegPubItem = require('../lib/parsers/regpub/regpubitem');
 
 var GovtController = function(app) {
 
   // Main index page
   app.get("/gob", function(req, res) {
     res.send("Hi Panamen.io");
+  });
+
+  // TODO: Register Router
+  app.get("/gob/registropublico/sociedades/:id", function(req, res) {
+    if (!req.param('id')) {
+      res.send('Missing id');
+      return;
+    }
+
+    var regpubitemModel = new RegPubItem();
+    regpubitemModel.fetch(req.param('id'), {
+     success: function(html, model) {
+       res.json(200, model);
+     },
+     error: function(error) {
+       res.json(400, { error: error });
+     }
+    });    
   });
 
   // Registro Publico - SA Info
