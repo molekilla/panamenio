@@ -2,15 +2,27 @@ var _ = require('underscore');
 var Idaan = require('../lib/parsers/idaan');
 var RegPub = require('../lib/parsers/regpub/regpub');
 var RegPubItem = require('../lib/parsers/regpub/regpubitem');
-
+var LoteriaModel = require('../lib/parsers/loteria/loteria');
 var GovtController = function(app) {
 
   // Main index page
   app.get("/gob", function(req, res) {
     res.send("Hi Panamen.io");
   });
+  // Loteria Nacional
+  // ?m(mes)&a(anio)
+  app.get("/gob/loteria/numeros", function(req, res) {
+    var loteriaModel = new LoteriaModel();
+    loteriaModel.fetch(req.param, {
+      success: function(html, model) {
+        res.json(200, model);
+      },
+      error: function(error) {
+        res.json(400, { error: error });
+      }
+    });
+  });
 
-  // TODO: Register Router
   app.get("/gob/registropublico/sociedades/:id", function(req, res) {
     if (!req.param('id')) {
       res.send('Missing id');
