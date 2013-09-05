@@ -201,7 +201,8 @@ describe("Loteria spec", function() {
       	numero: '8783',
       	serie: '',
       	folio: ''
-      }
+      },
+      dateFormatISO : 'es-pa'
     };
     expect(loteria.parse(html).sorteos[0]).toEqual(matchWith);
   });
