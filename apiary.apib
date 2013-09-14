@@ -1,4 +1,4 @@
-HOST: http://your-hosted-panamenio-api-service/
+HOST: http://panamenio.herokuapp.com
 
 --- panamenio ---
 
@@ -11,7 +11,7 @@ Government Resources /gob as in gobierno
 Contains related government services as REST APIs
 --
 Returns the current month lottery numbers.
-GET /gob/loteria/numeros
+GET /api/gob/loteria/numeros
 < 200
 < Content-Type: application/json
     {
@@ -39,7 +39,7 @@ GET /gob/loteria/numeros
     
 
 Returns the current pending billing invoice for an IDAAN account.
-GET /gob/idaan/{id}
+GET /api/gob/idaan/{id}
 < 200
 < Content-Type: application/json
     {
