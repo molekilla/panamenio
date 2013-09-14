@@ -3,6 +3,9 @@
 
 API para servicios publicos de Panama, Republica de Panama
 
+#### REST API Docs
+http://docs.panamenio.apiary.io/
+
 ### V 0.10
 **Idaan**
 /api/gob/idaan/numero_de_cuenta
