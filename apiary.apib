@@ -1,0 +1,67 @@
+HOST: http://your-hosted-panamenio-api-service/
+
+--- panamenio ---
+
+---
+REST API de servicios publicos y comerciales en Panama.
+---
+
+--
+Government Resources /gob as in gobierno
+Contains related government services as REST APIs
+--
+Returns the current month lottery numbers.
+GET /gob/loteria/numeros
+< 200
+< Content-Type: application/json
+    {
+      tipo : 'Dominical',
+      fecha : '01-09-2013',
+      primero : {
+          numero: '0677',
+      	serie: '4',
+      	folio: '13',
+      	verificacion: '',
+      	letras: 'DDBC'
+      },
+      segundo : {
+      	numero: '7260',
+      	serie: '',
+      	folio: ''
+      },
+      tercero : {
+      	numero: '8783',
+      	serie: '',
+      	folio: ''
+      },
+      dateFormatISO : 'es-pa'
+    }
+    
+
+Returns the current pending billing invoice for an IDAAN account.
+GET /gob/idaan/id
+< 200
+< Content-Type: application/json
+    {
+      agua : 7.92,
+      basura : 8.75,
+      total : 16.67,
+      owner : 'J Jay',
+      nic : '116',
+      updatedAt : '04/08/2013',
+      lastPaymentAt : '17/07/2013',
+      lastPaymentAmount : 12.73,
+      dateFormatISO : 'es-pa'
+    }
+
+
+-- 
+Commercial Resources 
+Contains related commercial services as REST APIs
+--
+
+This resource allows you to submit payment information to process your *shopping cart* items
+POST /payment
+{ "cc": "12345678900", "cvc": "123", "expiry": "0112" }
+< 200
+{ "receipt": "/payment/receipt/1" }
