@@ -5,6 +5,16 @@ var RegPubItem = require('../lib/parsers/regpub/regpubitem');
 var LoteriaModel = require('../lib/parsers/loteria/loteria');
 var GovtController = function(app) {
 
+  var responseHandler = function(req, res) {
+    return {
+      success: function(html, model) {
+        res.jsonp(200, model);
+      },
+      error: function(error) {
+        res.jsonp(400, { error: error });
+      }
+    };
+  };
   // Main index page
   app.get("/gob", function(req, res) {
     res.send("Hi Panamen.io");
@@ -13,14 +23,7 @@ var GovtController = function(app) {
   // ?m(mes)&a(anio)
   app.get("/gob/loteria/numeros", function(req, res) {
     var loteriaModel = new LoteriaModel();
-    loteriaModel.fetch(req.query, {
-      success: function(html, model) {
-        res.json(200, model);
-      },
-      error: function(error) {
-        res.json(400, { error: error });
-      }
-    });
+    loteriaModel.fetch(req.query, responseHandler(req, res));
   });
 
   app.get("/gob/registropublico/sociedades/:id", function(req, res) {
