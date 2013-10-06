@@ -147,7 +147,7 @@ var html = heredoc(function() {
  					<!-- Si es gordito -->
  											<td align="center"><span class="style1"><font size="2"><strong></strong></font></span></td>
  										<td align="center"><span class="style1"><font size="2"><strong>7260</strong></font></span></td>
- 												<td align="center"><span class="style1"><font size="2"><strong></strong></font></span></td>
+ 												<td align="center"><span class="style1"><font size="2"><strong>8783</strong></font></span></td>
  							<td align="center"><span class="style1"><font size="2"><strong></strong></font></span></td>
  										<td align="center"><span class="style1"><font size="2"><strong>8783</strong></font></span></td>
  												<td align="center"><span class="style1"><font size="2"><strong></strong></font></span></td>
@@ -193,14 +193,10 @@ describe("Loteria spec", function() {
       	letras: 'DDBC'
       },
       segundo : {
-      	numero: '7260',
-      	serie: '',
-      	folio: ''
+      	numero: '7260'
       },
       tercero : {
-      	numero: '8783',
-      	serie: '',
-      	folio: ''
+      	numero: '8783'
       },
       dateFormatISO : 'es-pa'
     };

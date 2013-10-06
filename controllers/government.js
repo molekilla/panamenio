@@ -33,14 +33,7 @@ var GovtController = function(app) {
     }
 
     var regpubitemModel = new RegPubItem();
-    regpubitemModel.fetch(req.param('id'), {
-     success: function(html, model) {
-       res.json(200, model);
-     },
-     error: function(error) {
-       res.json(400, { error: error });
-     }
-    });    
+    regpubitemModel.fetch(req.param('id'), responseHandler(req, res));
   });
 
   // Registro Publico - SA Info
@@ -50,14 +43,7 @@ var GovtController = function(app) {
       return;
    }
    var regpubModel = new RegPub();
-   regpubModel.fetch(req.param('query'), {
-    success: function(html, model) {
-      res.json(200, model);
-    },
-    error: function(error) {
-      res.json(400, { error: error });
-    }
-   });
+   regpubModel.fetch(req.param('query'), responseHandler(req, res));
   });
 
   // Idaan - Billing Info
@@ -67,14 +53,7 @@ var GovtController = function(app) {
       return;
     }
     var idaanModel = new Idaan(req.param('id'));
-    idaanModel.fetch({
-      success: function(html, model) {
-        res.json(200, model);
-      },
-      error: function(error) {
-        res.json(400, { error: error });
-      }
-    });
+    idaanModel.fetch(responseHandler(req, res));
   });
 };
 exports.init = function(app) {

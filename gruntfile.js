@@ -143,8 +143,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-concurrent');
 
   grunt.registerTask('dev', ['concurrent:target'])
+  grunt.registerTask('spec', ['jasmine_node', 'jasmine', 'jshint'])
 
   // Default task.
-  grunt.registerTask('default', ['jasmine_node', 'jshint', 'handlebars', 'jasmine', 'concat', 'uglify']);
+  grunt.registerTask('default', [ 'handlebars', 'concat', 'uglify']);
 
 };
