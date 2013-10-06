@@ -78,6 +78,15 @@ module.exports = function(grunt) {
       }
     },
     watch: {
+      livereload: {
+        options: {
+          livereload: true
+        },
+        files: [
+          'public/**/*.{css, js}',
+          'views/**/*.*'
+        ]
+      },
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
         tasks: ['jshint:gruntfile']
@@ -133,7 +142,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-concurrent');
 
+  grunt.registerTask('dev', ['concurrent:target'])
+
   // Default task.
-  grunt.registerTask('default', ['jasmine_node','nodemon', 'jshint', 'handlebars', 'jasmine', 'concat', 'uglify']);
+  grunt.registerTask('default', ['jasmine_node', 'jshint', 'handlebars', 'jasmine', 'concat', 'uglify']);
 
 };
