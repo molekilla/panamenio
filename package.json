@@ -3,7 +3,8 @@
   "version": "0.10.0",
   "private": false,
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test" : "grunt spec"
   },
   "dependencies": {
     "async": "0.2.8",
