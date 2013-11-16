@@ -6,6 +6,7 @@
 var express = require('express')
   , http = require('http')
   , path = require('path')
+  , sched= require('./controllers/schedule')
   , com  = require('./controllers/commercial')
   , govt = require('./controllers/government');
   
@@ -28,6 +29,7 @@ if ('development' == app.get('env')) {
 }
 govt.init(app);
 com.init(app);
+sched.init(app);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

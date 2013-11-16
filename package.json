@@ -14,7 +14,9 @@
     "underscore": "*",
     "cheerio": "*",
     "request": "*",
-    "grunt": "~0.4.1"
+    "grunt": "~0.4.1",
+    "cron": "*",
+    "nodemailer" : "*"
   },
   "devDependencies": {
     "heredoc": "*",
