@@ -1,5 +1,6 @@
 var _ = require('underscore');
-//var Metrobus = require('../lib/parsers/metrobus');
+var Idaan = require('../lib/parsers/idaan');
+var config = require('../config/scheduler');
 
 var ScheduleController = function(app) {
   var job;
@@ -10,24 +11,26 @@ var ScheduleController = function(app) {
   });
 
   // Schedule
-  app.get("/sched/test", function(req, res) {
-    // if (!req.param('id')) {
-    //   res.send('Missing card id');
-    //   return;
-    // }
-    // var metrobusModel = new Metrobus(req.param('id'));
-    // metrobusModel.fetch({
-    //   success: function(html, model) {
-    //     res.json(200, model);
-    //   },
-    //   error: function(error) {
-    //     res.json(400, { error: error });
-    //   }
-    // });
+  app.get("/sched/idaan/:id", function(req, res) {
+    var responseHandler = function(req, res) {
+      return {
+        success: function(html, model) {
+          //res.jsonp(200, model);
+        },
+        error: function(error) {
+          console.log(error)
+        }
+      };
+    };
   var cronJob = require('cron').CronJob;
-  job = new cronJob('*/2 * * * *', 
+  // Every x min: */x * * * *
+  // Every x hour: 0 */x * * *
+  job = new cronJob(config.recurrence, 
     function(){
+
       console.log("ran at " + (new Date()).toString());
+      var idaanModel = new Idaan(req.param('id'));
+      idaanModel.fetch(responseHandler(req, res));
     },
     function () {
       // This function is executed when the job stops
@@ -35,6 +38,7 @@ var ScheduleController = function(app) {
     },
     true /* Start the job right now */);
   res.send("scheduled");
+  console.log("scheduled...");
   });
 };
 exports.init = function(app) {

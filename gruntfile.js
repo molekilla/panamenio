@@ -80,11 +80,12 @@ module.exports = function(grunt) {
     watch: {
       livereload: {
         options: {
-          livereload: true
+          livereload: false
         },
         files: [
-          'public/**/*.{css, js}',
-          'views/**/*.*'
+          'config/*.*',
+          'controllers/**/*.*',
+          'lib/**/*.*'
         ]
       },
       gruntfile: {
@@ -93,7 +94,7 @@ module.exports = function(grunt) {
       },
       lib_test: {
         files: '<%= jshint.lib_test.src %>',
-        tasks: ['jshint:lib_test', 'qunit']
+        tasks: ['jshint:lib_test']
       },
       pivotal : {
         files: ['src/**/*.js', 'specs/**/*.js'],
