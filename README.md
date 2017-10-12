@@ -1,7 +1,13 @@
-##Panamen.io
+## Panamenio
 =========
 
-API para servicios publicos de Panama, Republica de Panama
+Boilerplate API para servicios publicos de Panama, Republica de Panama.
+
+Actualmente utilizado en producción en un fork privado, con las siguientes mejoras:
+
+- Webhook compatible (aunque REST hooks es más escalable)
+- Async (non-blocking) por medio de POST que retorna url a fetch (NoSQL como storage)
+- Utiliza `menio` en vez de cheeriot
 
 #### REST API Docs
 http://docs.panamenio.apiary.io/
@@ -56,31 +62,25 @@ grunt nodemon
 Para debuggear, utiliza node-debugger
 grunt jasmine_node o grunt  ejecuta los specs
 
-###REST API Spec
-###Servicios Publicos
-####/api/gob/servicio
+### REST API Spec
+### Servicios Publicos
+#### /api/gob/servicio
 
 Ejemplo
 /api/gob/idaan/:numeroCuenta
 
-###Servicios Comerciales
-####/api/com/servicio
+### Servicios Comerciales
+#### /api/com/servicio
 
 Ejemplo
 /api/com/metrobus/:codigo
 
 
-###Patrones
+### Patrones
 
 **lib** contiene los modelos, cada modelo debe tener metodos **fetch** y **parse**
 
 **spec** contiene los specs al modelo. Por lo general queremos probar la logica de **parse**.
 
-### CheerioTemplate (en progreso)
-Plantillas para Cheerio. Permite separar (Decouple) logica de Scrap y Parse. 
-
-###Adicional
-Los contribuidores deben fork y enviar Pull Request.
-Los non developers deben abrir issues y proponer y argumentar sus ideas.
 
 Rogelio Morrell C. Benevolent Panamenio.
