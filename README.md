@@ -7,7 +7,7 @@ Actualmente utilizado en producción en un fork privado, con las siguientes mejo
 
 - Webhook compatible (aunque REST hooks es más escalable)
 - Async (non-blocking) por medio de POST que retorna url a fetch (NoSQL como storage)
-- Utiliza `menio` en vez de cheeriot
+- Utiliza [menio](https://github.com/molekilla/menio) en vez de cheeriot
 
 #### REST API Docs
 http://docs.panamenio.apiary.io/
