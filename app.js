@@ -14,18 +14,13 @@ var app = express();
 // all environments
 app.set('port', process.env.PORT || 3000);
 //app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-app.use('/api', app.router);
-app.use(express.static(path.join(__dirname, 'public')));
+//app.set('view engine', 'ejs');
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 
-// development only
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
-}
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
 govt.init(app);
 com.init(app);
 

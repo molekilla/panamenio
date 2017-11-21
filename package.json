@@ -1,23 +1,23 @@
 {
   "name": "panamenio",
-  "version": "0.10.0",
+  "version": "1.0.0",
   "private": false,
   "scripts": {
     "start": "node app.js",
-    "test" : "grunt spec"
+    "test": "grunt spec"
   },
   "dependencies": {
     "async": "0.2.8",
-    "nodemon": "0.7.8",
-    "express": "3.4.0",
-    "ejs": "*",
-    "underscore": "*",
+    "body-parser": "^1.18.2",
     "cheerio": "*",
-    "request": "*",
-    "grunt": "~0.4.1"
+    "ejs": "*",
+    "express": "4.1.0",
+    "grunt": "~0.4.1",
+    "nodemon": "0.7.8",
+    "r2": "^2.0.0",
+    "request": "*"
   },
   "devDependencies": {
-    "heredoc": "*",
     "jasmine-node": "*",
     "grunt-jasmine-node": "*",
     "grunt-contrib-jst": "~0.5.0",

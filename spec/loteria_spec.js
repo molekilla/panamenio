@@ -1,9 +1,6 @@
-var heredoc = require('heredoc');
 var LoteriaModel = require('../lib/parsers/loteria/loteria');
 
-var html = heredoc(function() {
- /*
- <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40">
+var html = `<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40">
  <title>Loteria Nacional de Beneficencia</title>
  <link href="css/loteria.css" rel="stylesheet" type="text/css" />
  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -176,8 +173,7 @@ var html = heredoc(function() {
   </td>
   </tr>
  </table>
- */
-});
+`;
 
 describe("Loteria spec", function() {
   it("when html is requested, should return a model", function() {
@@ -200,6 +196,6 @@ describe("Loteria spec", function() {
       },
       dateFormatISO : 'es-pa'
     };
-    expect(loteria.parse(html).sorteos[0]).toEqual(matchWith);
+    expect(loteria.parse(html).sorteos[1]).toEqual(matchWith);
   });
 });

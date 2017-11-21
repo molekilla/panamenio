@@ -1,25 +1,61 @@
-var heredoc = require('heredoc');
-var RegPubModel  = require('../lib/parsers/regpub/regpub');
+var RegPubModel = require('../lib/parsers/regpub/regpub');
 
-var html = heredoc(function() {
-	/*
+var html = `
 	<HTML> <head> <STYLE><!-- d6-css2.css BODY { FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; FONT-FAMILY: verdana, arial, helvetica, sans-serif; TEXT-DECORATION: none } td { FONT-SIZE: 80%; FONT-FAMILY: verdana, arial, helvetica, sans-serif;} th { FONT-SIZE: 80%; FONT-FAMILY: verdana, arial, helvetica, sans-serif; FONT-WEIGHT: bold; } A:active { COLOR: #3366cc; TEXT-DECORATION: underline } A:hover { COLOR: #3366cc; TEXT-DECORATION: underline } A:link { COLOR: #003399; TEXT-DECORATION: underline } A:visited { COLOR: #336699; TEXT-DECORATION: underline } TD.TOPLINK { FONT-SIZE: 60%; FONT-WEIGHT: bold; COLOR: #ffffff; TEXT-DECORATION: none } A.TOPLINK:link { FONT-WEIGHT: bold; COLOR: #ffffff; TEXT-DECORATION: none } A.TOPLINK:hover { FONT-WEIGHT: bold; COLOR: #ffffff; TEXT-DECORATION: none } A.TOPLINK:active { FONT-WEIGHT: bold; COLOR: #ffffff; TEXT-DECORATION: none } A.TOPLINK:visited { FONT-WEIGHT: bold; COLOR: #ffffff; TEXT-DECORATION: none } A.noline:active { TEXT-DECORATION: none } A.noline:hover { TEXT-DECORATION: none } A.noline:link { COLOR: #000000; TEXT-DECORATION: none } A.noline:visited { COLOR: #000000; TEXT-DECORATION: none } div.index { FONT-SIZE: 60%; } A.index:active { COLOR: #3366cc; TEXT-DECORATION: none } A.index:hover { COLOR: #3366cc; TEXT-DECORATION: underline } A.index:link { COLOR: #003399; TEXT-DECORATION: none } A.index:visited { COLOR: #336699; TEXT-DECORATION: none } td.copywhite { FONT-WEIGHT: normal; FONT-SIZE: 60%; COLOR: #ffffff; TEXT-DECORATION: none } td.submenue-selected { FONT-WEIGHT: bold; background-color: white; FONT-SIZE: 60%; CURSOR: pointer; COLOR: BLACK; } td.submenue-inactive { FONT-WEIGHT: normal; FONT-SIZE: 60%; CURSOR: pointer; COLOR: #b4cffc;} td.submenue { FONT-WEIGHT: normal; FONT-SIZE: 60%; CURSOR: pointer; COLOR: black; } p.msg { FONT-WEIGHT: bold; FONT-SIZE: 60%; CURSOR: pointer; COLOR: #003399; } input { FONT-SIZE: 80%; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; } select { FONT-SIZE: 80%; FONT-WEIGHT: normal; COLOR: #000000; } td.white { background-color: white } td.blue { background-color: #e9eef5; COLOR: #336699;} TR.gray { background-color: #E9EEF5 } td.input { FONT-WEIGHT: normal; COLOR: #000000; background-color: #7FAADF } td.titulo { FONT-WEIGHT: normal; COLOR: white; background-color: #7FAADF } tr.top { FONT-WEIGHT: normal; COLOR: #000000; background-color: #7FAADF } .history { FONT-SIZE: 80%; COLOR: #666666; TEXT-DECORATION: none } --></STYLE> <!JS><meta http-equiv="Refresh" content="0; URL=/js/error.html"> <script src=/js/menu.js> type="text/javascript"></script> <script> function ant(){return true}; window.onerror = ant; </script> <script language="JavaScript"> setInterval ("window.status = ''",10); </script> </head> <BODY bgColor=#ffffff leftMargin=0 topMargin=0 marginheight="0" marginwidth="0" rightMargin=0 bottomMargin=0 $BODY$> <FORM name="forma1" METHOD="POST"> <input TYPE="hidden" VALUE="SA" NAME="SECCION"> <TABLE height=239 cellSpacing=0 cellPadding=0 width=781 border=0> <TR> <TD vAlign=top align=left height=1 width="44"></TD> <TD vAlign=top align=left height=1 width="65"></TD> <TD vAlign=top align=left height=1 width="1098"></TD> </TR> <TR> <TD vAlign=top align=left height=1 width="44"><IMG height=1 alt="" src="/PICTURES/d6_dot_clear.gif" width=10> &nbsp;&nbsp; </TD> <TD vAlign=top align=left height=1 width="65"></TD> <TD vAlign=top align=left height=1 width="1098"></TD> </TR> <TR> <TD vAlign=top align=left bgColor=#e9eef5 rowSpan=2 width="44" height="397"> <table border="0" bgColor=#E9EEF5 cellspacing="0" cellpadding="0" width="144" height="40"> <tr> <TD vAlign=top align=left bgColor=#e9eef5 height=9 width="142"> <p align="center"><b><font color='#990000'>Mercantil<br></font><font color='#CC0000'> Soc. Anï¿½nimas</b></font><br> </p> </TD> </tr> <TR> <td width="142" height="32"> <p align="left"><!-- generic menubar - start --><table border='0' cellspacing='0' width='140'><tr><td class='submenue' valign='bottom'onmouseover='this.style.background="#ffffff";' onmouseout='javascript:this.style.background="#e9eef5";'><img src='/pictures/d6_dot_clear.gif' alt='' width='5' height='2'><a class='noline' href='MESAMENU?TODO=MER1&FROM=IMAGINAR&TO=&START=1&ID=$ID&USUARIO=testtest&CONTRASENA=74303732303330313365737474657374&MENSAJE=Error'><b><font color='black'>Directa por Ficha</font></b></a></td></tr> <tr><td class='submenue' valign='bottom'onmouseover='this.style.background="#ffffff";' onmouseout='javascript:this.style.background="#e9eef5";'><img src='/pictures/d6_dot_clear.gif' alt='' width='5' height='2'><a class='noline' href='MESAMENU?TODO=MER2&FROM=IMAGINAR&TO=&START=1&ID=$ID&USUARIO=testtest&CONTRASENA=74303732303330313365737474657374&MENSAJE=Error'><b><font color='black'>Por Ficha</font></b></a></td></tr> <tr><td class='submenue' valign='bottom'onmouseover='this.style.background="#ffffff";' onmouseout='javascript:this.style.background="#e9eef5";'><img src='/pictures/d6_dot_clear.gif' alt='' width='5' height='2'><a class='noline' href='MESAMENU?TODO=MER3&FROM=IMAGINAR&TO=&START=1&ID=$ID&USUARIO=testtest&CONTRASENA=74303732303330313365737474657374&MENSAJE=Error'><b><font color='black'>Por Tomo y Asiento</font></b></a></td></tr> <tr><td class='submenue-selected' valign='bottom'><img src='/pictures/d6_dot_clear.gif' alt='' width='5' height='2'><b><font color='black'>Alfabï¿½ticamente</font></b></td></tr> <tr><td class='submenue' valign='bottom'onmouseover='this.style.background="#ffffff";' onmouseout='javascript:this.style.background="#e9eef5";'><img src='/pictures/d6_dot_clear.gif' alt='' width='5' height='2'><a class='noline' href='MESAMENU?TODO=MER5&FROM=IMAGINAR&TO=&START=1&ID=$ID&USUARIO=testtest&CONTRASENA=74303732303330313365737474657374&MENSAJE=Error'><b><font color='black'>Cambios por Ficha</font></b></a></td></tr> <tr><td class='submenue' valign='bottom'onmouseover='this.style.background="#ffffff";' onmouseout='javascript:this.style.background="#e9eef5";'><img src='/pictures/d6_dot_clear.gif' alt='' width='5' height='2'><a class='noline' href='MESAMENU?TODO=MER7&FROM=IMAGINAR&TO=&START=1&ID=$ID&USUARIO=testtest&CONTRASENA=74303732303330313365737474657374&MENSAJE=Error'><b><font color='black'>Por Poderes</font></b></a></td></tr> <tr><td class='submenue' valign='bottom'onmouseover='this.style.background="#ffffff";' onmouseout='javascript:this.style.background="#e9eef5";'><img src='/pictures/d6_dot_clear.gif' alt='' width='5' height='2'><a class='noline' href='MESAMENU?TODO=MER8&FROM=IMAGINAR&TO=&START=1&ID=$ID&USUARIO=testtest&CONTRASENA=74303732303330313365737474657374&MENSAJE=Error'><b><font color='black'>Soc. Cambio Nombre</font></b></a></td></tr> <tr><td class='submenue' valign='bottom'onmouseover='this.style.background="#ffffff";' onmouseout='javascript:this.style.background="#e9eef5";'><img src='/pictures/d6_dot_clear.gif' alt='' width='5' height='2'><a class='noline' href='MESAMENU?TODO=MER9&FROM=IMAGINAR&TO=&START=1&ID=$ID&USUARIO=testtest&CONTRASENA=74303732303330313365737474657374&MENSAJE=Error'><b><font color='black'>Por 1ra. Tasa ï¿½nica</font></b></a></td></tr> </table><!-- generic menubar - end --></p> </td> </TR> </table><BG COLOR="#E9EEF5"> <p>&nbsp;</p> <DIV align=left> <TABLE height=11 bgColor=#E9EEF5 cellSpacing=0 cellPadding=2 border=0 width="152"> <TR> <TD height=11 width="146" bgcolor="#E9EEF5" align="center"> <p align="center"><! d6-select-left.html - start > <FORM METHOD="POST" ACTION="MESAMENU"><INPUT TYPE="HIDDEN" NAME="TODO" VALUE="MER4"> <INPUT TYPE="HIDDEN" NAME="USUARIO" VALUE="testtest"> <INPUT TYPE="HIDDEN" NAME="CONTRASENA" VALUE="74303732303330313365737474657374"> <INPUT TYPE="HIDDEN" NAME="MENSAJE" VALUE="Error"> <head> <script src=/js/menu.js> type="text/javascript"></script> <script language="JavaScript"> setInterval ("window.status = ''",10); </script> </head> <TABLE cellSpacing="0" cellPadding="0" border="0" width="153" height="1"> <TR height="10"><TD colspan="3" width="286" height="1"> <p align="left">&nbsp;</p> </TD></TR> <TR bgColor="#003399" height="1"><TD colspan="3" class="submenue" width="286" height="1"> <p align="center"><font color="white"><b>Indique Nombre de Sociedad</b></font></TD></TR> <TR bgColor="#003399" height="1"><TD colspan="3" class="submenue" width="286" height="1"> <TR><TD bgColor="#003399" width="3" height="34"><IMG height="1" alt="" SRC="/pictures/d6_dot_clear.gif" width="1" border="0"></TD> <TD width="338" height="34"><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="5" width="122"> <TR> <TD ALIGN="RIGHT" class="submenue" width="57"><font size="2"><INPUT class="submenue" TYPE="TEXT" NAME="FROM" MAXLENGTH="50" SIZE="16" VALUE="IMAGINAR"></font></TD> <TD class="submenue" width="1"></TD> <TD class="submenue" width="1"></TD> <TD class="submenue" width="1"><INPUT TYPE="IMAGE" height=11 src="/pictures/d6_arrow_go.gif" width=11 border=1 VALUE="$SUBMIT$"></TD> </TR> </TABLE></TD> <TD bgColor="#003399" width="4" height="34"><IMG height="1" alt="" SRC="/pictures/d6_dot_clear.gif" width="1" border="0"></TD> </TR> <TR bgColor="#003399" height="1"><TD colspan="3" width="286" height="1"><IMG height="1" alt="" SRC="/pictures/d6_dot_clear.gif" width="1" border="0"></TD></TR> </TABLE> </FORM> <! d6-select-left.html - end > </TD> </TR> </TABLE> </DIV> <!-- Content Finder --> </TD> </TR> <TR> <TD vAlign=top width="55" height="420"> </TD> <TD vAlign=top width="1055" height="420"> <p align="left"><?xml version="1.0" encoding="UTF-8" standalone="yes"?><table border="0" cellspacing="3" cellpadding="3" align="center"><tr class="top"><th>NOMBRE SOCIEDAD</th><th nowrap="nowrap">FICHA</th><th>STATUS</th><th>ROLLO/TOMO</th><th>IMAGEN/FOLIO</th></tr><tr><td nowrap="nowrap">IMAGINAR, S.A.</td><td nowrap="nowrap"><a href="MESAMENU?TODO=SHOW&amp;FROM=IMAGINAR&amp;TO=&amp;START=1&amp;USUARIO=testtest&amp;CONTRASENA=74303732303330313365737474657374&amp;MENSAJE=Error&amp;ID=445182">445182</a></td><td nowrap="nowrap"/><td nowrap="nowrap">0</td><td nowrap="nowrap">0</td></tr><tr class="gray"><td nowrap="nowrap">IMAGINARIUM INTERNATIONAL</td><td nowrap="nowrap"><a href="MESAMENU?TODO=SHOW&amp;FROM=IMAGINAR&amp;TO=&amp;START=1&amp;USUARIO=testtest&amp;CONTRASENA=74303732303330313365737474657374&amp;MENSAJE=Error&amp;ID=420538">420538</a></td><td nowrap="nowrap"/><td nowrap="nowrap">0</td><td nowrap="nowrap">0</td></tr><tr><td nowrap="nowrap">IMAGINARIUN STUDIO, S.A.</td><td nowrap="nowrap"><a href="MESAMENU?TODO=SHOW&amp;FROM=IMAGINAR&amp;TO=&amp;START=1&amp;USUARIO=testtest&amp;CONTRASENA=74303732303330313365737474657374&amp;MENSAJE=Error&amp;ID=753324">753324</a></td><td nowrap="nowrap"/><td nowrap="nowrap">0</td><td nowrap="nowrap">0</td></tr><tr class="gray"><td nowrap="nowrap">IMAGINARTE, S.A.</td><td nowrap="nowrap"><a href="MESAMENU?TODO=SHOW&amp;FROM=IMAGINAR&amp;TO=&amp;START=1&amp;USUARIO=testtest&amp;CONTRASENA=74303732303330313365737474657374&amp;MENSAJE=Error&amp;ID=668450">668450</a></td><td nowrap="nowrap"/><td nowrap="nowrap">0</td><td nowrap="nowrap">0</td></tr></table>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font size="1"></font>&nbsp;<font size="1"> <br> </font></p> <p align="center"> <b></b><font size="1">&nbsp;</font></p> </TD> </TR> </TABLE> </FORM> </BODY> </HTML>
-	*/
-});
-
-describe("RegPub spec", function() {
-  it("when html from an index search, should return a model", function() {
-    var regpubService = new RegPubModel();
-    var matchWith = { sociedades: 
-    	[ { sociedad : 'IMAGINAR, S.A.', ficha : '445182', estado : '', tomo : '0', 
-    	folio : '0', links : { ficha : { href : '/sociedades/445182' } } }
-    	, { sociedad : 'IMAGINARIUM INTERNATIONAL', ficha : '420538', estado : '', tomo : '0', 
-    	folio : '0', links : { ficha : { href : '/sociedades/420538' } } }, 
-    	{ sociedad : 'IMAGINARIUN STUDIO, S.A.', ficha : '753324', estado : '', tomo : '0', 
-    	folio : '0', links : { ficha : { href : '/sociedades/753324' } } }, 
-    	{ sociedad : 'IMAGINARTE, S.A.', ficha : '668450', estado : '', tomo : '0', 
-    	folio : '0', links : { ficha : { href : '/sociedades/668450' } } } ]
-    };
-    expect(regpubService.parse(html)).toEqual(matchWith);
-  });
+	`;
+describe("RegPub spec", function () {
+	it("when html from an index search, should return a model", function () {
+		var regpubService = new RegPubModel();
+		var matchWith = {
+			sociedades: [{
+					sociedad: 'IMAGINAR, S.A.',
+					ficha: '445182',
+					estado: '',
+					tomo: '0',
+					folio: '0',
+					links: {
+						ficha: {
+							href: '/sociedades/445182'
+						}
+					}
+				}, {
+					sociedad: 'IMAGINARIUM INTERNATIONAL',
+					ficha: '420538',
+					estado: '',
+					tomo: '0',
+					folio: '0',
+					links: {
+						ficha: {
+							href: '/sociedades/420538'
+						}
+					}
+				},
+				{
+					sociedad: 'IMAGINARIUN STUDIO, S.A.',
+					ficha: '753324',
+					estado: '',
+					tomo: '0',
+					folio: '0',
+					links: {
+						ficha: {
+							href: '/sociedades/753324'
+						}
+					}
+				},
+				{
+					sociedad: 'IMAGINARTE, S.A.',
+					ficha: '668450',
+					estado: '',
+					tomo: '0',
+					folio: '0',
+					links: {
+						ficha: {
+							href: '/sociedades/668450'
+						}
+					}
+				}
+			]
+		};
+		expect(regpubService.parse(html)).toEqual(matchWith);
+	});
 });
